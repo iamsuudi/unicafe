@@ -4,7 +4,7 @@ const initialState = {
   bad: 0
 }
 
-const counterReducer = (state = initialState, action) => {
+export default function counterReducer(state = initialState, action) {
   console.log(action)
   switch (action.type) {
     case 'GOOD':
@@ -17,7 +17,25 @@ const counterReducer = (state = initialState, action) => {
       return { good: 0, ok: 0, bad: 0 }
     default: return state
   }
-
 }
 
-export default counterReducer
+export function incrementGood() {
+  return ({
+    type: 'GOOD'
+  })
+}
+export function incrementBad() {
+  return ({
+    type: 'BAD'
+  })
+}
+export function incrementOk() {
+  return ({
+    type: 'OK'
+  })
+}
+export function reset() {
+  return ({
+    type: 'ZERO'
+  })
+}
